@@ -20,7 +20,7 @@ public class DataAccessObject {
 
     public ArrayList<String> VeriyiGoster(Veritabani vt) {
         ArrayList<String> listem = new ArrayList<>();
-        SQLiteDatabase db = vt.getWritableDatabase();
+        SQLiteDatabase db = vt.getReadableDatabase();
 
         Cursor c = db.rawQuery("Select *from Listem", null);
 

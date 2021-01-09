@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         button = findViewById(R.id.button);
         vt = new Veritabani(this);
+        rv = findViewById(R.id.rv);
         final String editTextGelenMetin = editText.getText().toString();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 adapter = new ListemAdapter(getApplicationContext(), listem);
                 adapter.notifyDataSetChanged();
                 rv.setAdapter(adapter);
+                editText.setText("");
             }
         });
 
-        rv = findViewById(R.id.rv);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(this));
         listem = new DataAccessObject().VeriyiGoster(vt);
